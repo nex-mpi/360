@@ -8,12 +8,14 @@
   <link rel="stylesheet" href="assets/scripts/bulma.min.css">
   <link rel="stylesheet" href="assets/scripts/splide.min.css">
   <link rel="icon" href="assets/images/icon_32x32.png" type="image/png" sizes="32x32">
-  <meta property="og:url"                content="https://nex-mpi.github.io/" />
-  <meta property="og:type"               content="article" />
-  <meta property="og:title"              content="NeX360: Real-time View Synthesis with Neural Basis Expansion" />
-  <meta property="og:description"        content="We present NeX, a new approach to novel view synthesis based on enhancements of multiplane image (MPI) that can reproduce NeXt-level view-dependent effects---in real time." />
-  <meta property="og:image"              content="https://nex-mpi.github.io/compare/images/saneh_jaan2/024_ours.jpg" />
-  <meta name="description" content="We present NeX, a new approach to novel view synthesis based on enhancements of multiplane image (MPI) that can reproduce NeXt-level view-dependent effects---in real time." />
+  <meta property="og:url" content="https://nex-mpi.github.io/" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="NeX360: Real-time View Synthesis with Neural Basis Expansion" />
+  <meta property="og:description"
+    content="We present NeX, a new approach to novel view synthesis based on enhancements of multiplane image (MPI) that can reproduce NeXt-level view-dependent effects---in real time." />
+  <meta property="og:image" content="https://nex-mpi.github.io/compare/images/saneh_jaan2/024_ours.jpg" />
+  <meta name="description"
+    content="We present NeX, a new approach to novel view synthesis based on enhancements of multiplane image (MPI) that can reproduce NeXt-level view-dependent effects---in real time." />
   <meta name="keywords" content="view Synthesis, multiplane image, real time, NeRF, neural basis, basis expansion">
   <style>
     .black-frame {
@@ -54,18 +56,20 @@
       font-size: 1.3rem;
     }
 
-    .conference-name{
-      font-size:  1.5rem;
+    .conference-name {
+      font-size: 1.5rem;
       padding: 12px;
     }
-    .slider-container{
+
+    .slider-container {
       padding-left: 30px;
       padding-right: 30px;
     }
+
     @media only screen and (min-width: 900px) {
       .container.col-max-width {
         max-width: 900px !important;
-      }      
+      }
     }
 
     @media only screen and (min-width: 681px) {
@@ -75,10 +79,11 @@
     }
 
     @media only screen and (max-width: 600px) {
-      .slider-container{
+      .slider-container {
         padding-left: 0px;
         padding-right: 0px;
       }
+
       .author {
         font-size: 0.7rem
       }
@@ -91,10 +96,11 @@
         font-size: 0.8rem;
       }
 
-      .conference-name{
-        font-size:  1rem;
+      .conference-name {
+        font-size: 1rem;
       }
-      .slider-container .card-footer-item{
+
+      .slider-container .card-footer-item {
         font-size: 14px;
       }
     }
@@ -106,7 +112,7 @@
 
     .sec-body {}
 
-    .hero-body {
+    .hero-body-nex {
       padding: 1rem 1rem 2rem 1rem;
     }
 
@@ -128,15 +134,16 @@
     .videoren .column {
       margin: 0px;
     }
-    .button-clipboard-tooltip{
-        display: none;
-        color:white;
-        background: rgba(74,74,74,0.9);
-        border-radius: 2px;
-        padding: 0.5rem 1rem;
-        margin-right: 1rem;
-        text-overflow: ellipsis;
-        white-space: pre;
+
+    .button-clipboard-tooltip {
+      display: none;
+      color: white;
+      background: rgba(74, 74, 74, 0.9);
+      border-radius: 2px;
+      padding: 0.5rem 1rem;
+      margin-right: 1rem;
+      text-overflow: ellipsis;
+      white-space: pre;
     }
   </style>
 
@@ -170,7 +177,7 @@
           VISTEC - Vidyasirimedhi Institute of Science and Technology<br>Rayong, Thailand
         </div>
         <div>
-          <h2 class="title conference-name" ></h2>
+          <h2 class="title conference-name"></h2>
         </div>
         <div class="equal-contribution" style="color:#909090">
           *equal contribution
@@ -178,12 +185,31 @@
       </div>
     </div>
   </section>
+  <section class="hero video" style="height: 30vh; position: relative;">
+    <div class="hero-video" style="display: block;">
+      <video poster="assets/images/video-preview.jpg" id="bgvid" playsinline autoplay muted loop>
+        <source src="assets/video/realtime-preview.mp4" type="video/mp4">
+      </video>
+    </div>
+
+  </section>
   <section class="hero">
-    <div class="hero-body">
+    <div class="hero-body hero-body-nex">
       <div class="container" style="max-width:900px;">
         <h1 class="title shead">Abstract</h1>
         <p class="abstract" style="text-align: justify;">
-          PLACE HOLDER FOR ABSTRACT
+          We present NeX, a new approach to novel view synthesis based on enhancements of multiplane images (MPI) that
+          can reproduce view-dependent effects in real time.
+          Unlike traditional MPI, our technique parameterizes each pixel as a linear combination of spherical basis
+          functions learned from a neural network to model view-dependent effects and uses a hybrid implicit-explicit
+          modeling strategy to improve fine detail.
+          Moreover, we also present an extension to NeX, which leverages <b>knowledge distillation</b> to train multiple
+          MPIs for unbounded 360° scenes.
+          Our method is evaluated on several benchmark datasets: NeRF-Synthetic dataset, Light Field dataset, Real
+          Forward-Facing dataset, Space dataset, as well as <b>Shiny</b>, our new dataset that contains significantly
+          more challenging view-dependent effects, such as the rainbow reflections on the CD.
+          Our method outperforms other real-time rendering approaches on PSNR, SSIM, and LPIPS and can render
+          <b>unbounded</b> 360° scenes in real time.
         </p>
       </div>
     </div>
@@ -194,42 +220,569 @@
         <div class="columns">
           <div class="column"></div>
           <div class="column ">
-            <a href="#" target="_blank">
+            <div href="#" target="_blank">
               <div>
                 <img src="assets/images/paper.png">
               </div>
               Paper [SOON]
-            </a>
+            </div>
           </div>
           <div class="column">
-            <a href="#" target="_blank">
+            <div href="#" target="_blank">
               <div>
                 <img src="assets/images/coding.png">
-              </div>          
-            Code [SOON]
-            </a>
+              </div>
+              Code [SOON]
+            </div>
           </div>
           <div class="column"></div>
         </div>
       </div>
     </div>
     <br />
-  </section>  
+  </section>
   <section class="hero">
-    <div class="hero-body">
+    <div class="hero-body hero-body-nex">
       <div class="col-max-width container">
         <h1 class="title shead">
           Real-time demos
         </h1>
         <p class="subtitle" style="font-size: 1rem;">
-          *A high-end GPU recommended for High and VR modes.
+          *A high-end GPU recommended for PNG MPIs or Full resolution.
         </p>
-        PLACE HOLDER FOR REAL-TIME DEMO
-      </div>     
+        <center><h3 style="font-weight: 600; margin-top: 3rem;margin-bottom: 1rem; font-size: 1.4rem;">NeRF-Synthetic</h3></center>
+        <div>
+          <div class="columns">
+            <div class="column">
+              <div class="card">
+                <div class="card-image">
+                  <figure class="image is-1by1">
+                    <img src="compare/images/lego/gt_0025.png" alt="Lego">
+                  </figure>
+                </div>
+                <footer class="card-footer">
+                  <p class="card-footer-item">
+                    <span>
+                      DDS:
+                    </span>
+                  </p>
+                  <p class="card-footer-item">
+                    <span>
+                      <a href="https://pureexe.github.io/nex360-viewer?scene=/lego-dds-800" target="blank">Full</a>
+                    </span>
+                  </p>
+                  <p class="card-footer-item">
+                    <span>
+                      <a href="https://pureexe.github.io/nex360-viewer?scene=/lego-dds-600" target="blank">High</a>
+                    </span>
+                  </p>
+                  <p class="card-footer-item">
+                    <span>
+                      <a href="https://pureexe.github.io/nex360-viewer?scene=/lego-dds-400" target="blank">Low</a>
+                    </span>
+                  </p>
+                </footer>
+                <footer class="card-footer">
+                  <p class="card-footer-item">
+                    <span>
+                      PNG:
+                    </span>
+                  </p>
+                  <p class="card-footer-item">
+                    <span>
+                      <a href="https://pureexe.github.io/nex360-viewer?scene=/lego-png-800">Full</a>
+                    </span>
+                  </p>
+                  <p class="card-footer-item">
+                    <span>
+                      <a href="https://pureexe.github.io/nex360-viewer?scene=/lego-png-600">High</a>
+                    </span>
+                  </p>
+                  <p class="card-footer-item">
+                    <span>
+                      <a href="https://pureexe.github.io/nex360-viewer?scene=/lego-png-400">Low</a>
+                    </span>
+                  </p>
+                </footer>
+              </div>
+            </div>
+            <div class="column">
+              <div class="card">
+                <div class="card-image">
+                  <figure class="image is-1by1">
+                    <img src="compare/images/chair/gt_0050.png" alt="Chair">
+                  </figure>
+                </div>
+                <footer class="card-footer">
+                  <p class="card-footer-item">
+                    <span>
+                      DDS:
+                    </span>
+                  </p>
+                  <p class="card-footer-item">
+                    <span>
+                      <a href="https://pureexe.github.io/nex360-viewer?scene=/chair-dds-800" target="blank">Full</a>
+                    </span>
+                  </p>
+                  <p class="card-footer-item">
+                    <span>
+                      <a href="https://pureexe.github.io/nex360-viewer?scene=/chair-dds-600" target="blank">High</a>
+                    </span>
+                  </p>
+                  <p class="card-footer-item">
+                    <span>
+                      <a href="https://pureexe.github.io/nex360-viewer?scene=/chair-dds-400" target="blank">Low</a>
+                    </span>
+                  </p>
+                </footer>
+                <footer class="card-footer">
+                  <p class="card-footer-item">
+                    <span>
+                      PNG:
+                    </span>
+                  </p>
+                  <p class="card-footer-item">
+                    <span>
+                      <a href="https://pureexe.github.io/nex360-viewer?scene=/chair-png-800">Full</a>
+                    </span>
+                  </p>
+                  <p class="card-footer-item">
+                    <span>
+                      <a href="https://pureexe.github.io/nex360-viewer?scene=/chair-png-600">High</a>
+                    </span>
+                  </p>
+                  <p class="card-footer-item">
+                    <span>
+                      <a href="https://pureexe.github.io/nex360-viewer?scene=/chair-png-400">Low</a>
+                    </span>
+                  </p>
+                </footer>
+              </div>
+            </div>
+            <div class="column">
+              <div class="card">
+                <div class="card-image">
+                  <figure class="image is-1by1">
+                    <img src="compare/images/drums/gt_0058.png" alt="Placeholder image">
+                  </figure>
+                </div>
+                <footer class="card-footer">
+                  <p class="card-footer-item">
+                    <span>
+                      DDS:
+                    </span>
+                  </p>
+                  <p class="card-footer-item">
+                    <span>
+                      <a href="https://pureexe.github.io/nex360-viewer?scene=/drums-dds-800" target="blank">Full</a>
+                    </span>
+                  </p>
+                  <p class="card-footer-item">
+                    <span>
+                      <a href="https://pureexe.github.io/nex360-viewer?scene=/drums-dds-600" target="blank">High</a>
+                    </span>
+                  </p>
+                  <p class="card-footer-item">
+                    <span>
+                      <a href="https://pureexe.github.io/nex360-viewer?scene=/drums-dds-400" target="blank">Low</a>
+                    </span>
+                  </p>
+                </footer>
+                <footer class="card-footer">
+                  <p class="card-footer-item">
+                    <span>
+                      PNG:
+                    </span>
+                  </p>
+                  <p class="card-footer-item">
+                    <span>
+                      <a href="https://pureexe.github.io/nex360-viewer?scene=/drums-png-800">Full</a>
+                    </span>
+                  </p>
+                  <p class="card-footer-item">
+                    <span>
+                      <a href="https://pureexe.github.io/nex360-viewer?scene=/drums-png-600">High</a>
+                    </span>
+                  </p>
+                  <p class="card-footer-item">
+                    <span>
+                      <a href="https://pureexe.github.io/nex360-viewer?scene=/drums-png-400">Low</a>
+                    </span>
+                  </p>
+                </footer>
+              </div>
+            </div>
+          </div>
+          <!--- -->
+          <div class="columns">
+            <div class="column">
+              <div class="card">
+                <div class="card-image">
+                  <figure class="image is-1by1">
+                    <img src="compare/images/ficus/gt_0064.png" alt="Ficus">
+                  </figure>
+                </div>
+                <footer class="card-footer">
+                  <p class="card-footer-item">
+                    <span>
+                      DDS:
+                    </span>
+                  </p>
+                  <p class="card-footer-item">
+                    <span>
+                      <a href="https://pureexe.github.io/nex360-viewer?scene=/ficus-dds-800" target="blank">Full</a>
+                    </span>
+                  </p>
+                  <p class="card-footer-item">
+                    <span>
+                      <a href="https://pureexe.github.io/nex360-viewer?scene=/ficus-dds-600" target="blank">High</a>
+                    </span>
+                  </p>
+                  <p class="card-footer-item">
+                    <span>
+                      <a href="https://pureexe.github.io/nex360-viewer?scene=/ficus-dds-400" target="blank">Low</a>
+                    </span>
+                  </p>
+                </footer>
+                <footer class="card-footer">
+                  <p class="card-footer-item">
+                    <span>
+                      PNG:
+                    </span>
+                  </p>
+                  <p class="card-footer-item">
+                    <span>
+                      <a href="https://pureexe.github.io/nex360-viewer?scene=/ficus-png-800">Full</a>
+                    </span>
+                  </p>
+                  <p class="card-footer-item">
+                    <span>
+                      <a href="https://pureexe.github.io/nex360-viewer?scene=/ficus-png-600">High</a>
+                    </span>
+                  </p>
+                  <p class="card-footer-item">
+                    <span>
+                      <a href="https://pureexe.github.io/nex360-viewer?scene=/ficus-png-400">Low</a>
+                    </span>
+                  </p>
+                </footer>
+              </div>
+            </div>
+            <div class="column">
+              <div class="card">
+                <div class="card-image">
+                  <figure class="image is-1by1">
+                    <img src="compare/images/hotdog/gt_0030.png" alt="Hotdog">
+                  </figure>
+                </div>
+                <footer class="card-footer">
+                  <p class="card-footer-item">
+                    <span>
+                      DDS:
+                    </span>
+                  </p>
+                  <p class="card-footer-item">
+                    <span>
+                      <a href="https://pureexe.github.io/nex360-viewer?scene=/hotdog-dds-800" target="blank">Full</a>
+                    </span>
+                  </p>
+                  <p class="card-footer-item">
+                    <span>
+                      <a href="https://pureexe.github.io/nex360-viewer?scene=/hotdog-dds-600" target="blank">High</a>
+                    </span>
+                  </p>
+                  <p class="card-footer-item">
+                    <span>
+                      <a href="https://pureexe.github.io/nex360-viewer?scene=/hotdog-dds-400" target="blank">Low</a>
+                    </span>
+                  </p>
+                </footer>
+                <footer class="card-footer">
+                  <p class="card-footer-item">
+                    <span>
+                      PNG:
+                    </span>
+                  </p>
+                  <p class="card-footer-item">
+                    <span>
+                      <a href="https://pureexe.github.io/nex360-viewer?scene=/hotdog-png-800">Full</a>
+                    </span>
+                  </p>
+                  <p class="card-footer-item">
+                    <span>
+                      <a href="https://pureexe.github.io/nex360-viewer?scene=/hotdog-png-600">High</a>
+                    </span>
+                  </p>
+                  <p class="card-footer-item">
+                    <span>
+                      <a href="https://pureexe.github.io/nex360-viewer?scene=/hotdog-png-400">Low</a>
+                    </span>
+                  </p>
+                </footer>
+              </div>
+            </div>
+            <div class="column">
+              <div class="card">
+                <div class="card-image">
+                  <figure class="image is-1by1">
+                    <img src="compare/images/materials/gt_0080.png" alt="Materials">
+                  </figure>
+                </div>
+                <footer class="card-footer">
+                  <p class="card-footer-item">
+                    <span>
+                      DDS:
+                    </span>
+                  </p>
+                  <p class="card-footer-item">
+                    <span>
+                      <a href="https://pureexe.github.io/nex360-viewer?scene=/materials-dds-800" target="blank">Full</a>
+                    </span>
+                  </p>
+                  <p class="card-footer-item">
+                    <span>
+                      <a href="https://pureexe.github.io/nex360-viewer?scene=/materials-dds-600" target="blank">High</a>
+                    </span>
+                  </p>
+                  <p class="card-footer-item">
+                    <span>
+                      <a href="https://pureexe.github.io/nex360-viewer?scene=/materials-dds-400" target="blank">Low</a>
+                    </span>
+                  </p>
+                </footer>
+                <footer class="card-footer">
+                  <p class="card-footer-item">
+                    <span>
+                      PNG:
+                    </span>
+                  </p>
+                  <p class="card-footer-item">
+                    <span>
+                      <a href="https://pureexe.github.io/nex360-viewer?scene=/materials-png-800">Full</a>
+                    </span>
+                  </p>
+                  <p class="card-footer-item">
+                    <span>
+                      <a href="https://pureexe.github.io/nex360-viewer?scene=/materials-png-600">High</a>
+                    </span>
+                  </p>
+                  <p class="card-footer-item">
+                    <span>
+                      <a href="https://pureexe.github.io/nex360-viewer?scene=/materials-png-400">Low</a>
+                    </span>
+                  </p>
+                </footer>
+              </div>
+            </div>
+          </div>
+          <!--- -->
+          <div class="columns is-centered">
+            <div class="column is-one-third">
+              <div class="card">
+                <div class="card-image">
+                  <figure class="image is-1by1">
+                    <img src="compare/images/mic/gt_0090.png" alt="Mic">
+                  </figure>
+                </div>
+                <footer class="card-footer">
+                  <p class="card-footer-item">
+                    <span>
+                      DDS:
+                    </span>
+                  </p>
+                  <p class="card-footer-item">
+                    <span>
+                      <a href="https://pureexe.github.io/nex360-viewer?scene=/mic-dds-800" target="blank">Full</a>
+                    </span>
+                  </p>
+                  <p class="card-footer-item">
+                    <span>
+                      <a href="https://pureexe.github.io/nex360-viewer?scene=/mic-dds-600" target="blank">High</a>
+                    </span>
+                  </p>
+                  <p class="card-footer-item">
+                    <span>
+                      <a href="https://pureexe.github.io/nex360-viewer?scene=/mic-dds-400" target="blank">Low</a>
+                    </span>
+                  </p>
+                </footer>
+                <footer class="card-footer">
+                  <p class="card-footer-item">
+                    <span>
+                      PNG:
+                    </span>
+                  </p>
+                  <p class="card-footer-item">
+                    <span>
+                      <a href="https://pureexe.github.io/nex360-viewer?scene=/mic-png-800">Full</a>
+                    </span>
+                  </p>
+                  <p class="card-footer-item">
+                    <span>
+                      <a href="https://pureexe.github.io/nex360-viewer?scene=/mic-png-600">High</a>
+                    </span>
+                  </p>
+                  <p class="card-footer-item">
+                    <span>
+                      <a href="https://pureexe.github.io/nex360-viewer?scene=/mic-png-400">Low</a>
+                    </span>
+                  </p>
+                </footer>
+              </div>
+            </div>
+            <div class="column is-one-third">
+              <div class="card">
+                <div class="card-image">
+                  <figure class="image is-1by1">
+                    <img src="compare/images/ship/gt_0159.png" alt="Ship">
+                  </figure>
+                </div>
+                <footer class="card-footer">
+                  <p class="card-footer-item">
+                    <span>
+                      DDS:
+                    </span>
+                  </p>
+                  <p class="card-footer-item">
+                    <span>
+                      <a href="https://pureexe.github.io/nex360-viewer?scene=/ship-dds-800" target="blank">Full</a>
+                    </span>
+                  </p>
+                  <p class="card-footer-item">
+                    <span>
+                      <a href="https://pureexe.github.io/nex360-viewer?scene=/ship-dds-600" target="blank">High</a>
+                    </span>
+                  </p>
+                  <p class="card-footer-item">
+                    <span>
+                      <a href="https://pureexe.github.io/nex360-viewer?scene=/ship-dds-400" target="blank">Low</a>
+                    </span>
+                  </p>
+                </footer>
+                <footer class="card-footer">
+                  <p class="card-footer-item">
+                    <span>
+                      PNG:
+                    </span>
+                  </p>
+                  <p class="card-footer-item">
+                    <span>
+                      <a href="https://pureexe.github.io/nex360-viewer?scene=/ship-png-800">Full</a>
+                    </span>
+                  </p>
+                  <p class="card-footer-item">
+                    <span>
+                      <a href="https://pureexe.github.io/nex360-viewer?scene=/ship-png-600">High</a>
+                    </span>
+                  </p>
+                  <p class="card-footer-item">
+                    <span>
+                      <a href="https://pureexe.github.io/nex360-viewer?scene=/ship-png-400">Low</a>
+                    </span>
+                  </p>
+                </footer>
+              </div>
+            </div>
+          </div>
+          <center><h3 style="font-weight: 600; margin-top: 3rem;margin-bottom: 1rem; font-size: 1.4rem;">Light Field (LF) Dataset</h3></center>
+          <!--- Lightfield dataset -->
+          <div class="columns">
+            <div class="column">
+              <div class="card">
+                <div class="card-image">
+                  <figure class="image is-16by8">
+                    <img src="compare/images/africa/01gt.jpg" alt="africa">
+                  </figure>
+                </div>
+                <footer class="card-footer">
+                  <p class="card-footer-item">
+                    <span>
+                      <a href="https://pureexe.github.io/nex360-viewer?scene=/africa-dds" target="blank">DDS</a>
+                    </span>
+                  </p>
+                  <p class="card-footer-item">
+                    <span>
+                      <a href="https://pureexe.github.io/nex360-viewer?scene=/africa-png" target="blank">PNG</a>
+                    </span>
+                  </p>
+                </footer>                
+              </div>
+            </div>
+            <div class="column">
+              <div class="card">
+                <div class="card-image">
+                  <figure class="image is-16by8">
+                    <img src="compare/images/basket/01gt.jpg" alt="basket">
+                  </figure>
+                </div>
+                <footer class="card-footer">
+                  <p class="card-footer-item">
+                    <span>
+                      <a href="https://pureexe.github.io/nex360-viewer?scene=/basket-dds" target="blank">DDS</a>
+                    </span>
+                  </p>
+                  <p class="card-footer-item">
+                    <span>
+                      <a href="https://pureexe.github.io/nex360-viewer?scene=/basket-png" target="blank">PNG</a>
+                    </span>
+                  </p>
+                </footer>                
+              </div>
+            </div>
+          </div>
+          <!--- -->
+          <div class="columns">
+            <div class="column">
+              <div class="card">
+                <div class="card-image">
+                  <figure class="image is-16by8">
+                    <img src="compare/images/lfship/01gt.jpg" alt="ship">
+                  </figure>
+                </div>
+                <footer class="card-footer">
+                  <p class="card-footer-item">
+                    <span>
+                      <a href="https://pureexe.github.io/nex360-viewer?scene=/lfship-dds" target="blank">DDS</a>
+                    </span>
+                  </p>
+                  <p class="card-footer-item">
+                    <span>
+                      <a href="https://pureexe.github.io/nex360-viewer?scene=/lfship-png" target="blank">PNG</a>
+                    </span>
+                  </p>
+                </footer>                
+              </div>
+            </div>
+            <div class="column">
+              <div class="card">
+                <div class="card-image">
+                  <figure class="image is-16by8">
+                    <img src="assets/images/torch-preview.jpg" alt="torch">
+                  </figure>
+                </div>
+                <footer class="card-footer">
+                  <p class="card-footer-item">
+                    <span>
+                      <a href="https://pureexe.github.io/nex360-viewer?scene=/torch-dds" target="blank">DDS</a>
+                    </span>
+                  </p>
+                  <p class="card-footer-item">
+                    <span>
+                      <a href="https://pureexe.github.io/nex360-viewer?scene=/torch-png" target="blank">PNG</a>
+                    </span>
+                  </p>
+                </footer>                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
     </div>
   </section>
   <section class="hero">
-    <div class="hero-body">
+    <div class="hero-body hero-body-nex">
       <div class=" col-max-width container">
         <h1 class="title shead">
           Comparisons
@@ -248,7 +801,7 @@
                     <div class="media-left">
                     </div>
                     <div class="media-content">
-                      <p class="title dtitle">Synthetic dataset</p>
+                      <p class="title dtitle">NeRF-Synthetic dataset</p>
                       <p class="subtitle is-6">[Mildenhall et al. 2020]</p>
                     </div>
                   </div>
@@ -257,11 +810,11 @@
             </a>
           </div>
           <div class="column">
-            <a href="compare/lightfields.html">
+            <a href="compare/lightfield.html">
               <div class="card">
                 <div class="card-image">
                   <figure class="image is-16by9">
-                    <img src="compare/images/lfship/01gt.jpg" alt="Light Fields dataset">
+                    <img src="compare/images/lfship/01gt.jpg" alt="Light Fields (LF) dataset">
                   </figure>
                 </div>
                 <div class="card-content" style="padding: 24px 6px">
@@ -269,37 +822,50 @@
                     <div class="media-left">
                     </div>
                     <div class="media-content">
-                      <p class="title dtitle"> Light Fields dataset</p>
+                      <p class="title dtitle"> Light Field (LF) dataset</p>
                       <p class="subtitle is-6">[Yücer et al. 2016]</p>
                     </div>
                   </div>
                 </div>
               </div>
             </a>
-          </div>       
+          </div>
         </div>
       </div>
     </div>
   </section>
   <section class="hero" style="padding-top:0px;">
-    <div class="hero-body">
+    <div class="hero-body hero-body-nex">
       <div class="container" style="max-width:900px;">
-<div class="card">
-  <header class="card-header">
-    <p class="card-header-title">
-      BibTex
-    </p>
-    <a class="card-header-icon button-clipboard" style="border:0px; background: inherit;" data-clipboard-target="#bibtex-info" >
-      <div class="button-clipboard-tooltip">Copied!</div>
-      <span class="icon">
-        <img src="assets/images/copy.svg" style="height: 20px;"/>
-      </span>
-    </a>
-  </header>
-  <div class="card-content">
-<pre style="background-color:inherit;padding: 0px;" id="bibtex-info">//TO BE FILL</pre>
-  </div>
-</div>
+        <div class="card">
+          <header class="card-header">
+            <p class="card-header-title">
+              BibTex
+            </p>
+            <a class="card-header-icon button-clipboard" style="border:0px; background: inherit;"
+              data-clipboard-target="#bibtex-info">
+              <div class="button-clipboard-tooltip">Copied!</div>
+              <span class="icon">
+                <img src="assets/images/copy.svg" style="height: 20px;" />
+              </span>
+            </a>
+          </header>
+          <div class="card-content">
+            <pre style="background-color:inherit;padding: 0px;" id="bibtex-info">//TO BE FILL</pre>
+          </div>
+        </div>
+  </section>
+  <section class="hero is-medium is-link is-mobile" style="background-image: url(assets/images/forward-facing-banner.jpg);">
+    <div class="hero-body">
+      <div class="col-max-width container">
+        <p class="title" >
+          Forward-facing scenes
+        </p>
+        <p class="subtitle" >
+          <a class="button is-link" href="https://nex-mpi.github.io/">Visit NeX conference version page</a>
+        </p>
+      </div>
+    </div>
   </section>
   <section class="hero" style="background-color: white;">
     <div style="margin: 0px; margin-top: 5px;">
@@ -333,22 +899,22 @@
   <script src="assets/scripts/clipboard.min.js"></script>
   <script>
     var clipboard = new ClipboardJS('.button-clipboard');
-    function setTooltip(){
+    function setTooltip() {
       var tooltip = document.querySelector('.button-clipboard-tooltip');
       tooltip.style.display = 'block';
     }
-    function hideTooltip(){
+    function hideTooltip() {
       var tooltip = document.querySelector('.button-clipboard-tooltip');
       tooltip.style.display = 'none';
     }
-    clipboard.on('success', function(e) {
+    clipboard.on('success', function (e) {
       setTooltip(e.trigger, 'Copied!');
-      setTimeout(function(){
+      setTimeout(function () {
         hideTooltip(e.trigger);
       }, 2000);
-      
+
     });
-    
+
   </script>
 </body>
 
