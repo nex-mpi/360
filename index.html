@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NeX 360: Real-time View Synthesis with Neural Basis Expansion</title>
+  <link rel="stylesheet" href="assets/scripts/bulma.min.css">
+  <link rel="stylesheet" href="assets/scripts/splide.min.css">
+  <link rel="icon" href="assets/images/icon_32x32.png" type="image/png" sizes="32x32">
+  <meta property="og:url"                content="https://nex-mpi.github.io/" />
+  <meta property="og:type"               content="article" />
+  <meta property="og:title"              content="NeX360: Real-time View Synthesis with Neural Basis Expansion" />
+  <meta property="og:description"        content="We present NeX, a new approach to novel view synthesis based on enhancements of multiplane image (MPI) that can reproduce NeXt-level view-dependent effects---in real time." />
+  <meta property="og:image"              content="https://nex-mpi.github.io/compare/images/saneh_jaan2/024_ours.jpg" />
+  <meta name="description" content="We present NeX, a new approach to novel view synthesis based on enhancements of multiplane image (MPI) that can reproduce NeXt-level view-dependent effects---in real time." />
+  <meta name="keywords" content="view Synthesis, multiplane image, real time, NeRF, neural basis, basis expansion">
+  <style>
+    .black-frame {
+      height: 100%;
+      background: #171617;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .splide__pagination__page.is-active {
+      background: #555555;
+    }
+
+    .card {
+      margin: 10px;
+    }
+
+    .card .media-content .title,
+    .card .media-content .subtitle {
+      color: #4a4a4a;
+    }
+
+    .subtitle {
+      margin-top: -0.8rem !important;
+    }
+
+    .card-footer {
+      text-align: center;
+    }
+
+    .author {
+      font-size: 1.15rem
+    }
+
+    .author-vistec {
+      font-size: 1.3rem;
+    }
+
+    .conference-name{
+      font-size:  1.5rem;
+      padding: 12px;
+    }
+    .slider-container{
+      padding-left: 30px;
+      padding-right: 30px;
+    }
+    @media only screen and (min-width: 900px) {
+      .container.col-max-width {
+        max-width: 900px !important;
+      }      
+    }
+
+    @media only screen and (min-width: 681px) {
+      .vistec-offset {
+        top: -15px;
+      }
+    }
+
+    @media only screen and (max-width: 600px) {
+      .slider-container{
+        padding-left: 0px;
+        padding-right: 0px;
+      }
+      .author {
+        font-size: 0.7rem
+      }
+
+      .equal-contribution {
+        font-size: 0.65rem
+      }
+
+      .author-vistec {
+        font-size: 0.8rem;
+      }
+
+      .conference-name{
+        font-size:  1rem;
+      }
+      .slider-container .card-footer-item{
+        font-size: 14px;
+      }
+    }
+
+    .shead {
+      font-size: 1.7rem;
+      margin-bottom: 0.5em !important;
+    }
+
+    .sec-body {}
+
+    .hero-body {
+      padding: 1rem 1rem 2rem 1rem;
+    }
+
+    .bbut {
+      background-color: #739cde;
+      color: white;
+      padding: 0.5em 0.8em;
+      border-radius: 5px;
+    }
+
+    .dtitle {
+      font-size: 1.1rem;
+    }
+
+    .bbut:hover {
+      color: white !important;
+    }
+
+    .videoren .column {
+      margin: 0px;
+    }
+    .button-clipboard-tooltip{
+        display: none;
+        color:white;
+        background: rgba(74,74,74,0.9);
+        border-radius: 2px;
+        padding: 0.5rem 1rem;
+        margin-right: 1rem;
+        text-overflow: ellipsis;
+        white-space: pre;
+    }
+  </style>
+
+  <script src="assets/scripts/splide.min.js"></script>
+</head>
+
+<body style="background-color: #F5F5F5; overflow-x: hidden;">
+  <section class="hero" style="background-color: white;">
+    <div class="hero-body" style="padding: 3rem 0 2rem 0;">
+      <div class="container" style="text-align: center; max-width: 950px;">
+        <h1 class="title">
+          NeX360: Real-time View Synthesis with Neural Basis Expansion
+        </h1>
+        <div class="columns author is-mobile">
+          <div class="column">
+            Pakkapon Phongthawee*
+          </div>
+          <div class="column">
+            Suttisak Wizadwongsa*
+          </div>
+          <div class="column">
+            Jiraphon Yenphraphai
+          </div>
+          <div class="column">
+            <a href="https://supasorn.com" target="_blank" style="color:#4a4a4a">Supasorn Suwajanakorn</a>
+          </div>
+        </div>
+        <div>
+        </div>
+        <div class="author-vistec">
+          VISTEC - Vidyasirimedhi Institute of Science and Technology<br>Rayong, Thailand
+        </div>
+        <div>
+          <h2 class="title conference-name" ></h2>
+        </div>
+        <div class="equal-contribution" style="color:#909090">
+          *equal contribution
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container" style="max-width:900px;">
+        <h1 class="title shead">Abstract</h1>
+        <p class="abstract" style="text-align: justify;">
+          We present NeX, a new approach to novel view synthesis based on enhancements of multiplane image (MPI)
+          that can reproduce NeXt-level view-dependent effects---in real time. Unlike traditional MPI that uses a set of
+          simple RGBα planes,
+          our technique models view-dependent effects by instead parameterizing each pixel as a linear combination of
+          basis functions learned from a neural network.
+          Moreover, we propose a hybrid implicit-explicit modeling strategy that improves upon fine detail and produces
+          state-of-the-art results.
+          Our method is evaluated on benchmark forward-facing datasets as well as our newly-introduced dataset designed
+          to test the limit of view-dependent modeling
+          with significantly more challenging effects such as the rainbow reflections on a CD.
+          Our method achieves the best overall scores across all major metrics on these datasets with more than 1000×
+          faster rendering time than the state of the art.
+        </p>
+      </div>
+    </div>
+  </section>
+  <section class="hero">
+    <div class="sec-body">
+      <div class="container is-size-5" style="text-align: center;">
+        <div class="columns">
+          <div class="column"></div>
+          <div class="column ">
+            <a href="https://arxiv.org/pdf/2103.05606.pdf" target="_blank">
+              <div>
+                <img src="assets/images/paper.png">
+              </div>
+              Paper
+            </a>
+          </div>
+          <div class="column">
+            <a href="https://github.com/nex-mpi/nex-code/" target="_blank">
+              <div>
+                <img src="assets/images/coding.png">
+              </div>          
+            Code
+            </a>
+          </div>
+          <div class="column"></div>
+        </div>
+      </div>
+    </div>
+    <br />
+  </section>  
+  <section class="hero">
+    <div class="hero-body">
+      <div class="col-max-width container">
+        <h1 class="title shead">
+          Real-time demos
+        </h1>
+        <p class="subtitle" style="font-size: 1rem;">
+          *A high-end GPU recommended for High and VR modes.
+        </p>
+      </div>     
+    </div>
+  </section>
+  <section class="hero">
+    <div class="hero-body">
+      <div class=" col-max-width container">
+        <h1 class="title shead">
+          Comparisons
+        </h1>
+        <div class="columns is-desktop">
+          <div class="column">
+            <a href="compare/synthetic.html">
+              <div class="card">
+                <div class="card-image">
+                  <figure class="image is-4by3">
+                    <img src="compare/images/spaghetti/000_gt.jpg" alt="Shiny dataset">
+                  </figure>
+                </div>
+                <div class="card-content" style="padding: 24px 6px">
+                  <div class="media">
+                    <div class="media-left">
+                    </div>
+                    <div class="media-content">
+                      <p class="title dtitle">Synthetic dataset</p>
+                      <p class="subtitle is-6">[Mildenhall et al. 2020]</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="column">
+            <a href="compare/frontface.html">
+              <div class="card">
+                <div class="card-image">
+                  <figure class="image is-4by3">
+                    <img src="compare/images/fern/016_gt.jpg" alt="Real forward-facing dataset">
+                  </figure>
+                </div>
+                <div class="card-content" style="padding: 24px 6px">
+                  <div class="media">
+                    <div class="media-left">
+                    </div>
+                    <div class="media-content">
+                      <p class="title dtitle"> Light Fields dataset</p>
+                      <p class="subtitle is-6">[Mildenhall et al. 2020]</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>       
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="hero" style="padding-top:0px;">
+    <div class="hero-body">
+      <div class="container" style="max-width:900px;">
+<div class="card">
+  <header class="card-header">
+    <p class="card-header-title">
+      BibTex
+    </p>
+    <a class="card-header-icon button-clipboard" style="border:0px; background: inherit;" data-clipboard-target="#bibtex-info" >
+      <div class="button-clipboard-tooltip">Copied!</div>
+      <span class="icon">
+        <img src="assets/images/copy.svg" style="height: 20px;"/>
+      </span>
+    </a>
+  </header>
+  <div class="card-content">
+<pre style="background-color:inherit;padding: 0px;" id="bibtex-info">//TO BE FILL</pre>
+  </div>
+</div>
+  </section>
+  <section class="hero" style="background-color: white;">
+    <div style="margin: 0px; margin-top: 5px;">
+      <div class="container" style="text-align: center; vertica">
+        <a href="https://vistec.ist/vision" target="_blank"><img src="assets/images/vision.png"
+            style="width: 130px; display: inline; margin: 0 100px;"></a>
+        <a href="https://vistec.ist/" target="_blank"><img src="assets/images/vistec_color.svg" class="vistec-offset"
+            style="width: 130px; display: inline; margin: 0 100px; position:relative; "></a>
+      </div>
+    </div>
+  </section>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YBLPBBKRZ9"></script>
+  <script>
+    const fixWidthSize = screen.width > 600 ? '300px' : '240px';
+    new Splide('.splide', {
+      type: 'loop',
+      perPage: 3,
+      perMove: 1,
+      focus: 'center',
+      fixedWidth: fixWidthSize,
+      width: '1050px',
+      arrows: 'slider',
+    }).mount();
+
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-YBLPBBKRZ9');
+  </script>
+  <script src="assets/scripts/clipboard.min.js"></script>
+  <script>
+    var clipboard = new ClipboardJS('.button-clipboard');
+    function setTooltip(){
+      var tooltip = document.querySelector('.button-clipboard-tooltip');
+      tooltip.style.display = 'block';
+    }
+    function hideTooltip(){
+      var tooltip = document.querySelector('.button-clipboard-tooltip');
+      tooltip.style.display = 'none';
+    }
+    clipboard.on('success', function(e) {
+      setTooltip(e.trigger, 'Copied!');
+      setTimeout(function(){
+        hideTooltip(e.trigger);
+      }, 2000);
+      
+    });
+    
+  </script>
+</body>
+
+</html>

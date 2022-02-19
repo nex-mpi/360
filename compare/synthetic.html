@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html class="has-navbar-fixed-top">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>NeX360 comparsion - NeRF's dataset</title>
+    <link rel="stylesheet" href="../assets/scripts/bulma.min.css">
+    <link rel="stylesheet" href="../assets/scripts/compare_app.css">
+    <link rel="icon" href="../assets/images/icon_32x32.png" type="image/png" sizes="32x32">
+    <script>
+      var app = {
+        "name": "synthetic",
+        "owner": "NeRF's",
+        "zoombox": {
+          "desktop": {"size": '80px', "scale": "0.8"},
+          "tablet": {"size": '60px', "scale": "0.6"},
+          "phone": {"size": '150px', "scale": "1.5"}
+        },
+        "methods": ['Ground Truth','Ours','PlenOctree','SNeRG'],
+        "scenes": [
+          {
+            "name": "chair",
+            "path": "images/chair/",
+            "images": ['gt_0050.png','nex_0050.png','plenoctree_0050.png','snerg_0050.png'],
+            "width": 800,
+            "height": 800,
+            "zoom": {
+              "ratio": 2.4,
+              "top": 490, 
+              "left": 470 
+              }
+          },
+          {
+            "name": "drums",
+            "path": "images/drums/",
+            "images": ['gt_0058.png','nex_0058.png','plenoctree_0058.png','snerg_0058.png'],
+            "width": 800,
+            "height": 800,
+            "zoom": {
+              "ratio": 1.5,
+              "top": 180, 
+              "left": 180 
+              }
+          },
+          {
+            "name": "ficus",
+            "path": "images/ficus/",
+            "images": ['gt_0064.png','nex_0064.png','plenoctree_0064.png','snerg_0064.png'],
+            "width": 800,
+            "height": 800,
+            "zoom": {
+              "ratio": 1.5,
+              "top": 260, 
+              "left": 410 
+              }
+          },
+          {
+            "name": "hotdog",
+            "path": "images/hotdog/",
+            "images": ['gt_0030.png','nex_0030.png','plenoctree_0030.png','snerg_0030.png'],
+            "width": 800,
+            "height": 800,
+            "zoom": {
+              "ratio": 1.2,
+              "top": 430, 
+              "left": 740 
+              }
+          },
+          {
+            "name": "lego",
+            "path": "images/lego/",
+            "images": ['gt_0025.png','nex_0025.png','plenoctree_0025.png','snerg_0025.png'],
+            "width": 800,
+            "height": 800,
+            "zoom": {
+              "ratio": 1,
+              "top": 435, 
+              "left": 370 
+              }
+          },
+          {
+            "name": "materials",
+            "path": "images/materials/",
+            "images": ['gt_0080.png','nex_0080.png','plenoctree_0080.png','snerg_0080.png'],
+            "width": 800,
+            "height": 800,
+            "zoom": {
+              "ratio": 1.5,
+              "top": 340, 
+              "left": 650 
+              }
+          },
+          {
+            "name": "mic",
+            "path": "images/mic/",
+            "images": ['gt_0090.png','nex_0090.png','plenoctree_0090.png','snerg_0090.png'],
+            "width": 800,
+            "height": 800,
+            "zoom": {
+              "ratio": 3,
+              "top": 528, 
+              "left": 422 
+              }
+          },
+          {
+            "name": "ship",
+            "path": "images/ship/",
+            "images": ['gt_0159.png','nex_0159.png','plenoctree_0159.png','snerg_0159.png'],
+            "width": 800,
+            "height": 800,
+            "zoom": {
+              "ratio": 2,
+              "top": 458, 
+              "left": 330 
+              }
+          }
+        ]
+      }
+      window.app = app;
+    </script>
+    <script src="../assets/scripts/compare_template.js"></script>
+    <script src="../assets/scripts/compare_app.js"></script>
+  </head>
+  <body>
+  </body>
+</html>
