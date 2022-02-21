@@ -44,9 +44,21 @@
         </div>
       </div>
     </section>
-    <section >
+    <section >      
       <div class="hero-body">
-        <div class="container">    
+        <div class="container">
+          <nav class="pagination" role="navigation" aria-label="pagination">
+            <a class="pagination-previous" href="1.html">Previous</a>
+            <a class="pagination-next" disabled>Next page</a>
+            <ul class="pagination-list">
+              <li>
+                <a class="pagination-link" href="1.html">1</a>
+              </li>
+              <li>
+                <a class="pagination-link is-current" >2</a>
+              </li>          
+            </ul>
+          </nav>    
           <div class="columns">
             <div class="column" style="text-align: center;">
                 <span style="font-size: 1.5rem; font-weight: 600;" >Orbit</span>
@@ -67,6 +79,19 @@
                 </video>
             </div>
           </div>
+          
+          <div class="columns">
+            <div class="column">
+              <video controls autoplay loop>
+                <source src="../assets/video/addition/lfship.mp4" type="video/mp4" />
+              </video>  
+            </div>
+            <div class="column">
+                <video controls autoplay loop>
+                  <source src="../assets/video/addition/lfship_predict.mp4?a" type="video/mp4" />                
+                </video>
+            </div>
+          </div>
           <div class="columns">
             <div class="column">
               <video controls autoplay loop>
@@ -78,19 +103,7 @@
                   <source src="../assets/video/addition/basket_predict.mp4" type="video/mp4" />                
                 </video>
             </div>
-          </div>
-          <div class="columns">
-            <div class="column">
-              <video controls autoplay loop>
-                <source src="../assets/video/addition/lfship.mp4" type="video/mp4" />
-              </video>  
-            </div>
-            <div class="column">
-                <video controls autoplay loop>
-                  <source src="../assets/video/addition/lfship_predict.mp4" type="video/mp4" />                
-                </video>
-            </div>
-          </div>
+          </div>         
           <div class="columns">
             <div class="column">
               <video controls autoplay loop>
@@ -102,6 +115,19 @@
                   <source src="../assets/video/addition/torch_predict.mp4" type="video/mp4" />                
                 </video>
             </div>
+          </div>
+          <div style="margin-bottom: 2rem;" class="content">
+            <ul>
+              <li>
+                <p>
+                  Basket (3rd example) input views have a blurry background from the depth of field effect.
+                </p>
+              </li>
+              <li>
+                <p>
+                  On scene Torch (4th example), our method produces floating artifacts in the background and cannot reproduce dynamic people in the scene. Upon inspection, the artifacts appear since the global implicit step of our pipeline, while NeRF++, which separates the ray sampling into near and far zones, perform better. Please see the discussion in our paper.        
+                </p>
+              </li>
           </div>           
           <nav class="pagination" role="navigation" aria-label="pagination">
             <a class="pagination-previous" href="1.html">Previous</a>
@@ -117,7 +143,7 @@
           </nav>
         </div>
       </div>
-    </section>
+    </section>    
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-YBLPBBKRZ9"></script>
     <script>
